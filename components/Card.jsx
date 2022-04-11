@@ -11,11 +11,11 @@ export default function ItemCard(props) {
         <div class="p-4 bg-gray-900">
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col">
-              <p class="text-sm text-gray-500">Subtile</p>
-              <h5 class="text-lg text-white">Title</h5>
-              <p class="text-sm text-[#7A0BC0]">Available: 99/100</p>
+              <p class="text-sm text-gray-500">{props.subtitle}</p>
+              <h5 class="text-lg text-white">{props.title}</h5>
+              <p class="text-sm text-[#7A0BC0]">Available: {props.available}/{props.totalSupply}</p>
             </div>
-            <h3 className="text-sm font-bold text-[#FA58B6]">100 ETH</h3>
+            <h3 className="text-sm font-bold text-[#FA58B6]">{props.price} MATIC</h3>
           </div>
         </div>
       </div>
