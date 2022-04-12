@@ -50,6 +50,7 @@ const [iscorrect, setIsCorrect ] = useState(false);
       console.log(result);
       signEvent(result).then((data) => {
         if (data.status=="ok") {
+            setResult("");
             setIsCorrect(true);
           showNotification({
             title: "Success",
