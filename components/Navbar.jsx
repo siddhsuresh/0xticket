@@ -145,7 +145,7 @@ const links={
       "label": "Purchased Tickets"
     },
     {
-      "link": "/scanqr",
+      "link": "/scan",
       "label": "Scan QR Code"
     },
   ]
