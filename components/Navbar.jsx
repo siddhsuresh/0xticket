@@ -142,5 +142,9 @@ const links={
       "link": "/items",
       "label": "Items"
     },
+    {
+      "link": "/connectWallet",
+      "label": "Connect Wallet"
+    },
   ]
 };

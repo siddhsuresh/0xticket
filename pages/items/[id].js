@@ -26,30 +26,30 @@ export default function Items() {
                     />
                 </div>
                 <div
-          class="my-4 p-6 md:w-1/3 w-full shadow-2xl space-y-7 text-center md:text-justify "
-          style={{
-            backgroundColor: "rgba(0,0,0,0.05)",
-            backdropFilter: "blur(5px)",
-            borderRadius: "20px",
-          }}
-        >
-          <div className="flex flex-col gap-y-6 ">
-              <div className="text-white text-2xl font-semibold ">title</div>
-              <div className="text-white text-lg">description</div>
-              <div className="flex flex-row justify-between">
-              <div className="text-white text-lg">price</div>
-              <div className="text-white text-lg">quantity</div>
-              </div>
-              <br/>
-              <Button
-                  variant="contained"
-                  color="primary"
-                  className="tw-rounded-lg tw-pl-5 tw-pr-5 tw-pt-3 tw-pb-3 tw-gap-x-2 tw-w-full"
+                    class="my-4 p-6 md:w-1/3 w-full shadow-2xl space-y-7 text-center md:text-justify "
+                    style={{
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        backdropFilter: "blur(5px)",
+                        borderRadius: "20px",
+                    }}
                 >
-                  Add To Bag
-            </Button>
-          </div>
-          </div>
+                    <div className="flex flex-col gap-y-6 ">
+                        <div className="text-white text-2xl font-semibold ">title</div>
+                        <div className="text-white text-lg">description</div>
+                        <div className="flex flex-row justify-between">
+                            <div className="text-white text-lg">price</div>
+                            <div className="text-white text-lg">quantity</div>
+                        </div>
+                        <br />
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className="tw-rounded-lg tw-pl-5 tw-pr-5 tw-pt-3 tw-pb-3 tw-gap-x-2 tw-w-full"
+                        >
+                            Add To Bag
+                        </Button>
+                    </div>
+                </div>
             </div>
         </>
     );
