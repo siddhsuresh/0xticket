@@ -37,6 +37,7 @@ export default function QRread() {
           delay={1000}
           onError={handleError}
           onScan={handleScan}
+          facingMode={'rear'}
           style={{ width: "100%" }}
         />
         <p>{result}</p>
