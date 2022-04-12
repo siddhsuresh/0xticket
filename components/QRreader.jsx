@@ -35,7 +35,7 @@ async function signEvent(event) {
 }
 
 export default function QRread() {
-  const [isRead, setIsRead] = useState(false);
+const [iscorrect, setIsCorrect ] = useState(false);
   const [result, setResult] = useState("");
   const inputRef = useRef(null);
 
@@ -48,25 +48,51 @@ export default function QRread() {
   useEffect(() => {
     if (result) {
       console.log(result);
-      const content = signEvent(result);
-      console.log(content);
-      if (content.status === "ok") {
-        setIsRead(true);
-      } else {
-        showNotification({
-          title: "Error",
-          message: "Error in Verifying the QR Code. Please try again.",
-          type: "error",
-          duration: 3000,
-        });
+      signEvent(result).then((data) => {
+        if (data.status=="ok") {
+            setResult("");
+            setIsCorrect(true);
+          showNotification({
+            title: "Success",
+            message: "Success",
+            color: "green",
+            type: "success",
+          });
+        } else {
+            setResult("");
+          setIsCorrect(false);
+          showNotification({
+            title: "Error",
+            message: "Error in Validation",
+            color: "red",
+            type: "error",
+          });
+        }
       }
+    );
+    //   console.log("Content",content);
+    //   if (content.status === "ok") {
+    //     setIsRead(true);
+    //     console.log("ok");
+    //     setResult("");
+    //   } else if(content.status === "error"){
+    //     showNotification({
+    //       title: "Error",
+    //       message: "Error in Verifying the QR Code. Please try again.",
+    //       type: "error",
+    //       duration: 3000,
+    //     });
+    //     console.log("error");
+    //     setResult("");
+    //   }
     }
   }, [result]);
 
   const handleError = (err) => {
     console.error(err);
   };
-  if (!isRead) {
+  console.log("Result",result);
+  if (result===""||result===null) {
     return (
       <>
         <div>
@@ -81,7 +107,7 @@ export default function QRread() {
         </div>
       </>
     );
-  } else {
+  } else if(iscorrect){
     return (
       <div className="flex flex-wrap items-center justify-center gap-4">
         <svg
@@ -100,5 +126,10 @@ export default function QRread() {
         <p>Successfully Verified The Ticket</p>
       </div>
     );
+  }
+  else{
+      return(
+      <div className="text-white text-center">Validating...</div>
+      )
   }
 }
