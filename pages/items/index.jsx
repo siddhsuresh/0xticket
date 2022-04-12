@@ -1,5 +1,5 @@
 import Head from "next/head"
-import ItemCard from "../../components/card"
+import ItemCard from "../../components/Card"
 import {motion} from "framer-motion"
 import Link from "next/link"
 
