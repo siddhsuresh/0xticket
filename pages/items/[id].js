@@ -34,9 +34,6 @@ export default function Items() {
     if (data) {
         console.log(data)
         console.log(data.available)
-    }
-
-    if (data) {
         useEffect(()=>{
             if(value<1)
             {
@@ -46,7 +43,10 @@ export default function Items() {
             {
                 setValue(data.available)
             }
-        },[value,data])
+        },[value])
+    }
+
+    if (data) {
         return (
             <>
                 <Head>
