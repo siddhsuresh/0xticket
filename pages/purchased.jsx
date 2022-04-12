@@ -24,9 +24,22 @@ export default function Purchased(){
                 <title>Purchased Tickets</title>
             </Head>
             <Modal
+                size="lg"
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title="Scan QR Code"
+                styles={{
+                    "overlay": {
+                        backgroundColor: "#270082",
+                    },
+                    "modal" : {
+                        backgroundColor: "#1A1A40",
+                    },
+                    "title" : {
+                        color: "#FA58B6",
+                        fontWeight: "bold",
+                    },
+                }}
             >
                 <QRread />
             </Modal>
@@ -48,6 +61,7 @@ export default function Purchased(){
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
                   onClick={() => setOpened(true)}
+                  className="shadow-xl shadow-[#FA58B6]/20"
                 >
                 <ItemCard {...event} />
                 </motion.div>

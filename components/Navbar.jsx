@@ -57,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+      color:"#FA58B6",
     },
 
     [theme.fn.smallerThan('sm')]: {
@@ -68,11 +68,8 @@ const useStyles = createStyles((theme) => ({
 
   linkActive: {
     '&, &:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.fn.rgba(theme.colors[theme.primaryColor][8], 0.25)
-          : theme.colors[theme.primaryColor][0],
-      color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
+      backgroundColor: "#270082",
+      color: "white",
     },
   },
 }));
@@ -110,7 +107,7 @@ export default function HeaderResponsive() {
           <img src="/icon.png" className='w-[6.9rem]'></img>
         <span>0xticket</span>
         </div>
-        <Group spacing={5} className={classes.links}>
+        <Group spacing={10} className={classes.links}>
           {items}
         </Group>
 

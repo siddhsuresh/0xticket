@@ -36,6 +36,7 @@ export default function Items(){
                   transition={{ ease: "easeOut", delay: 0.1 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
+                  className="shadow-xl shadow-[#FA58B6]/20"
                 >
                 <ItemCard {...event} />
                 </motion.div>
