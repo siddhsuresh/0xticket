@@ -11,7 +11,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Purchased(){
   const [opened, setOpened] = useState(false);
-  const { data, error } = useSWR('http://localhost:6969/api/getEvents', fetcher);
+  const { data, error } = useSWR(process.env.API_URL+'/api/getEvents', fetcher);
 
   if(data){
     console.log(data)

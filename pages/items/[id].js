@@ -30,7 +30,7 @@ export default function Items() {
     const router = useRouter();
     const { id } = router.query;
     const [value,setValue] = useState(1);
-    const { data, error } = useSWR('http://localhost:6969/api/getEvents?url=' + id, fetcher);
+    const { data, error } = useSWR(process.env.API_URL+'/api/getEvents?url=' + id, fetcher);
     if (data) {
         console.log(data)
         console.log(data.available)

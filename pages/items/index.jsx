@@ -8,7 +8,8 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Items(){
 
-  const { data, error } = useSWR('http://localhost:6969/api/getEvents', fetcher);
+  const { data, error } = useSWR(process.env.API_URL+'/api/getEvents', fetcher);
+  console.log(process.env.API_URL+'/api/getEvents')
 
   if(data){
     console.log(data)
