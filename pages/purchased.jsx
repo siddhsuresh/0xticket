@@ -3,9 +3,12 @@ import ItemCard from "../components/Card"
 import {motion} from "framer-motion"
 import { Modal } from '@mantine/core';
 import { useEffect, useState, useRef } from "react";
-import QRread from "../components/QRreader";
+import dynamic from 'next/dynamic'
 // import Link from "next/link"
-
+const DynamicComponent = dynamic(
+    () => import('../components/QRreader'),
+    { ssr: false }
+)
 import useSWR from 'swr';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -41,7 +44,7 @@ export default function Purchased(){
                     },
                 }}
             >
-                <QRread />
+                <DynamicComponent />
             </Modal>
 
             <div className="flex items-center justify-center gap-8">

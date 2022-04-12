@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { QrReader } from "react-qr-reader";
+import QrReader from "react-qr-reader";
 
 export default function QRread() {
   const [result, setResult] = useState("");
