@@ -106,8 +106,9 @@ export default function HeaderResponsive() {
       borderRadius: "20px",
     }} >
       <Container className={classes.header}>
-        <div className="text-white font-bold text-lg">
-        0xticket
+        <div className="flex flex-row gap-4 items-center justify-center text-white font-bold text-lg">
+          <img src="/icon.png" className='w-[6.9rem]'></img>
+        <span>0xticket</span>
         </div>
         <Group spacing={5} className={classes.links}>
           {items}

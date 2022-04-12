@@ -16,12 +16,12 @@ export default function Items(){
 
   if(data){
     return(
-        <div className="h-screen">
+        <div className="h-full">
             <Head>
                 <title>Items Page</title>
             </Head>
-
-            <div className="p-5 flex flex-wrap items-center justify-center gap-8">
+            <div className="flex items-center justify-center gap-8">
+            <div className="p-5 grid grid-cols-2 gap-[3.5rem]">
               {
               data.events.map((event)=>{
                 return (<Link href={"/items/"+event.url}>
@@ -44,6 +44,7 @@ export default function Items(){
             }
             
             </div>
+        </div>
         </div>
     )
 } else {
