@@ -34,18 +34,7 @@ export default function Items() {
     if (data) {
         console.log(data)
         console.log(data.available)
-        useEffect(()=>{
-            if(value<1)
-            {
-                setValue(1)
-            }
-            else if(value>data.available)
-            {
-                setValue(data.available)
-            }
-        },[value])
     }
-
     if (data) {
         return (
             <>
