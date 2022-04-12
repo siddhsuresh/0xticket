@@ -1,3 +1,5 @@
+import Web3 from 'web3';
+
 export default function ItemCard(props) {
   return (
     <>
@@ -16,7 +18,7 @@ export default function ItemCard(props) {
               <h5 class="text-lg text-white">{props.title}</h5>
               <p class="text-sm text-[#7A0BC0]">Available: {props.available}/{props.totalSupply}</p>
             </div>
-            <h3 className="text-sm font-bold text-[#FA58B6]">{props.price} MATIC</h3>
+            <h3 className="text-sm font-bold text-[#FA58B6]">{Web3.utils.fromWei(props.price, 'ether')} MATIC</h3>
           </div>
         </div>
       </div>

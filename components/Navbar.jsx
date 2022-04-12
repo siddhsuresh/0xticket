@@ -107,7 +107,7 @@ export default function HeaderResponsive() {
     }} >
       <Container className={classes.header}>
         <div className="text-white font-bold text-lg">
-        NFT Ticket
+        0xticket
         </div>
         <Group spacing={5} className={classes.links}>
           {items}
@@ -141,10 +141,6 @@ const links={
     {
       "link": "/items",
       "label": "Items"
-    },
-    {
-      "link": "/connectWallet",
-      "label": "Connect Wallet"
     },
   ]
 };

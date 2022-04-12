@@ -73,10 +73,10 @@ export default function Items() {
                             <div className="text-white text-lg">Available: {data.available}</div>
                             <br />
                             <div className="flex flex-wrap items-center justify-between gap-5">
-                                <div className="text-white text-lg">Price: {data.price}</div>
+                                <div className="text-white text-lg">Price: {Web3.utils.fromWei(data.price, 'ether')}</div>
                                 <NumericInput min={1} max={data.available} value={value} onChange={setValue}/>
                             </div>
-                            <div className="text-white text-lg">Total Price to be paid is {value*data.price}</div>
+                            <div className="text-white text-lg">Total Price to be paid is {value* Web3.utils.fromWei(data.price, 'ether')}</div>
                             <br />
                             <Button
                                 variant="contained"
