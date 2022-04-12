@@ -141,7 +141,11 @@ const links={
     },
     {
       "link": "/items",
-      "label": "Items"
+      "label": "Tickets"
+    },
+    {
+      "link": "/purchased",
+      "label": "Purchased Tickets"
     },
   ]
 };

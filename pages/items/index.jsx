@@ -21,7 +21,7 @@ export default function Items(){
                 <title>Items Page</title>
             </Head>
             <div className="flex items-center justify-center gap-8">
-            <div className="p-5 grid grid-cols-2 gap-[3.5rem]">
+            <div className="p-5 grid md:grid-cols-2 gap-[3.5rem]">
               {
               data.events.map((event)=>{
                 return (<Link href={"/items/"+event.url}>
