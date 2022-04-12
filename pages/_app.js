@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import HeaderResponsive from "../components/Navbar";
 import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 export default function App(props) {
   const { Component, pageProps } = props;
 
@@ -14,11 +15,13 @@ export default function App(props) {
         />
       </Head>
       <div className="!bg-[#1A1A40] h-full">
-      <MantineProvider theme={{ colorScheme: 'dark' }}>
-        <div className="p-5">
-      <HeaderResponsive/>
-      </div>
-        <Component {...pageProps} />
+        <MantineProvider theme={{ colorScheme: 'dark' }}>
+          <NotificationsProvider>
+            <div className="p-5">
+              <HeaderResponsive />
+            </div>
+            <Component {...pageProps} />
+          </NotificationsProvider>
         </MantineProvider>
       </div>
     </>
