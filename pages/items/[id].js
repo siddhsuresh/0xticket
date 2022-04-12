@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@mui/material";
 import Web3 from 'web3';
 import { tokenAbi, marketplaceAbi } from "../../public/abi";
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import * as NumericInput from "react-numeric-input";
 
 import useSWR from 'swr';
@@ -35,7 +35,18 @@ export default function Items() {
         console.log(data)
         console.log(data.available)
     }
-    console.log("value",value)
+    
+    useEffect(()=>{
+        if(value<1)
+        {
+            setValue(1)
+        }
+        else if(value>data.available)
+        {
+            setValue(data.available)
+        }
+    },[value,data])
+
     if (data) {
         return (
             <>
