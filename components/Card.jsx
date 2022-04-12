@@ -4,7 +4,8 @@ export default function ItemCard(props) {
       <div href="" class="relative block overflow-hidden rounded-2xl max-w-md">
         <img
           class="object-cover w-full h-56"
-          src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+          // src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+          src={props.avatarSrc}
           alt=""
         />
 
