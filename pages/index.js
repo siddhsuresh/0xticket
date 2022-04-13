@@ -1,7 +1,10 @@
 import Head from "next/head"
 import Typed from 'react-typed';
-
+import { useEffect } from "react";
 export default function Items() {
+  useEffect(()=>{
+    localStorage.setItem('active','/')
+  },[])
   return (
     <div className="h-screen">
       <Head>
