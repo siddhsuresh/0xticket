@@ -75,7 +75,7 @@ export default function Purchased(){
                   whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
                   className="shadow-xl shadow-[#FA58B6]/20 rounded-xl hover:shadow-white/40 hover:shadow-2xl"
                 >
-                <PurchasedItemCard title={event.metadata.name} description={event.metadata.description} totalSupply={event.amount} avatarSrc={event.metadata.image} id={event.token_id}/>
+                <PurchasedItemCard title={event.metadata.name} description={event.metadata.description} totalSupply={event.amount} avatarSrc={event.metadata.image} id={event.token_id} contract={event.token_address}/>
                 </motion.div>
                 )
               })

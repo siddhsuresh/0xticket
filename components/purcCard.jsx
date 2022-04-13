@@ -1,6 +1,7 @@
 import Web3 from "web3";
 
 export default function PurchasedItemCard(props) {
+  console.log(props)
   return (
     <>
       <div
@@ -30,7 +31,7 @@ export default function PurchasedItemCard(props) {
               </span>
             </p>
             <div className="flex flex-wrap items-center justify-around pt-4 pb-4">
-              <button className="flex flex-row gap-4 items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full">
+              <button className="flex flex-row gap-4 items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{window.open('https://testnets.opensea.io/assets/mumbai/'+props.contract+'/'+props.id)}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
@@ -53,7 +54,7 @@ export default function PurchasedItemCard(props) {
                 </svg>
                 OpenSea
               </button>
-              <button className="flex flex-row gap-4 items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full">
+              <button className="flex flex-row gap-4 items-center justify-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full" onClick={()=>{window.open('https://mumbai.polygonscan.com/token/'+props.contract+'?a='+props.id)}}>
                 <svg
                   width="125"
                   height="20"
