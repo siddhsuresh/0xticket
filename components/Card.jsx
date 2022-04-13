@@ -15,7 +15,7 @@ export default function ItemCard(props) {
         <div className="p-4 bg-gray-900">
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col">
-            <p className="text-sm pb-2 text-gray-300">{date.toLocaleDateString()}</p>
+            <p className="text-sm pb-2 text-gray-300">{date.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric", hour:"numeric", minute: "numeric"}) }</p>
               <p className="text-sm text-gray-500">{props.subtitle}</p>
               <h5 className="text-lg text-white">{props.title}</h5>
               <p className="text-sm text-[#7A0BC0]">Available: {props.available}/{props.totalSupply}</p>

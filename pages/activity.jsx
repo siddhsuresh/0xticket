@@ -2,19 +2,63 @@ import Head from "next/head";
 import useSWR from "swr";
 import {useRouter} from "next/router";
 import { Router } from "@mui/icons-material";
+import React from 'react';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function Logs() {
   const router = useRouter();
-  const { data, error } = useSWR(
-    process.env.API_URL +
-      "/api/getLogs?account=0x33c0a3A1548AdCcaB635BC4a7843e9557CF95287",
-    fetcher
-  );
-  if(error)
-  {
-    console.log(error)
-    return <div>Error</div>
+  async function connectWallet(){
+    if (window.ethereum) {
+      try {
+          const address = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          return address
+      } catch (e) {
+          showNotification({
+              title: "Error",
+              color: "red",
+              autoClose: 5000,
+            });
+          console.log(e)
+          setIsAnimating(0)
+      }
   }
+  }
+
+
+
+  const [connected, setConnected] = React.useState("");
+
+  React.useEffect(()=>{
+    connectWallet().then((address)=>{
+      setConnected(address[0]);
+    }).catch((e)=>{
+      setConnected("");
+    })
+  }, [])
+  
+  console.log(connected)
+  const { data, error } = useSWR(process.env.API_URL+'/api/getLogs?account='+connected.toLowerCase(), fetcher);
+
+  if(data){
+    console.log(data)
+  }
+  if(connected==""||connected==null){
+    return(
+      <>
+      <div className="h-full"> Loading...</div>
+      </>
+    )
+  }
+  
+  // const { data, error } = useSWR(
+  //   process.env.API_URL +
+  //     "/api/getLogs?account=0x33c0a3A1548AdCcaB635BC4a7843e9557CF95287",
+  //   fetcher
+  // );
+  // if(error)
+  // {
+  //   console.log(error)
+  //   return <div>Error</div>
+  // }
   if (data) {
     console.log(data);
     return (

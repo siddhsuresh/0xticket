@@ -2,16 +2,55 @@ import Head from "next/head"
 import PurchasedItemCard from "../components/purcCard"
 import {motion} from "framer-motion"
 import useSWR from 'swr';
+import {useRouter} from 'next/router'
+import React from 'react';
 // import Link from "next/link"
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Purchased(){
-  const { data, error } = useSWR(process.env.API_URL+'/api/getNFTs?account=0x33c0a3A1548AdCcaB635BC4a7843e9557CF95287', fetcher);
+  const router = useRouter();
+  async function connectWallet(){
+    if (window.ethereum) {
+      try {
+          const address = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          return address
+      } catch (e) {
+          showNotification({
+              title: "Error",
+              color: "red",
+              autoClose: 5000,
+            });
+          console.log(e)
+          setIsAnimating(0)
+      }
+  }
+  }
+
+
+
+  const [connected, setConnected] = React.useState("");
+
+  React.useEffect(()=>{
+    connectWallet().then((address)=>{
+      setConnected(address[0]);
+    }).catch((e)=>{
+      setConnected("");
+    })
+  }, [])
+  
+  console.log(connected)
+  const { data, error } = useSWR(process.env.API_URL+'/api/getNFTs?account='+connected, fetcher);
 
   if(data){
     console.log(data)
   }
-
+  if(connected==""||connected==null){
+    return(
+      <>
+      <div className="h-full"> Loading...</div>
+      </>
+    )
+  }
   if(data){
     return(
         <div className="h-full">
@@ -47,6 +86,6 @@ export default function Purchased(){
         </div>
     )
 } else {
-  return <div className="h-full"></div>
+  return <div className="h-full">Loading...</div>
 }
 } 
