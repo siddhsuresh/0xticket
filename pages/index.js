@@ -10,7 +10,7 @@ export default function Items() {
       <div className="flex flex-col items-center justify-center">
         <div className="p-10 text-center text-4xl font-semibold text-[#FA58B6] ">
         <Typed
-            strings={["Welcome to 0xtickets", "Experience Tickets Overcomplicated", "Get Your Tickets Now!!"]}
+            strings={["Welcome to 0xtickets", "Experience Tickets in a whole new way", "Get Your Tickets Now!!"]}
             typeSpeed={40}
             backSpeed={40}
             smartBackspace
