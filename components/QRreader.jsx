@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import QrReader from "react-qr-reader";
 import Web3 from "web3";
 import { showNotification } from "@mantine/notifications";
+import { useRouter } from "next/router";
 
 async function signEvent(event) {
   try {
@@ -35,7 +36,8 @@ async function signEvent(event) {
 }
 
 export default function QRread() {
-const [iscorrect, setIsCorrect ] = useState(false);
+  const router = useRouter();
+  const [iscorrect, setIsCorrect] = useState(false);
   const [result, setResult] = useState("");
   const inputRef = useRef(null);
 
@@ -49,17 +51,18 @@ const [iscorrect, setIsCorrect ] = useState(false);
     if (result) {
       console.log(result);
       signEvent(result).then((data) => {
-        if (data.status=="ok") {
-            setResult("");
-            setIsCorrect(true);
+        if (data.status == "ok") {
+          setResult("");
+          setIsCorrect(true);
           showNotification({
             title: "Success",
             message: "Success",
             color: "green",
             type: "success",
           });
+          router.push("/activity");
         } else {
-            setResult("");
+          setResult("");
           setIsCorrect(false);
           showNotification({
             title: "Error",
@@ -68,31 +71,30 @@ const [iscorrect, setIsCorrect ] = useState(false);
             type: "error",
           });
         }
-      }
-    );
-    //   console.log("Content",content);
-    //   if (content.status === "ok") {
-    //     setIsRead(true);
-    //     console.log("ok");
-    //     setResult("");
-    //   } else if(content.status === "error"){
-    //     showNotification({
-    //       title: "Error",
-    //       message: "Error in Verifying the QR Code. Please try again.",
-    //       type: "error",
-    //       duration: 3000,
-    //     });
-    //     console.log("error");
-    //     setResult("");
-    //   }
+      });
+      //   console.log("Content",content);
+      //   if (content.status === "ok") {
+      //     setIsRead(true);
+      //     console.log("ok");
+      //     setResult("");
+      //   } else if(content.status === "error"){
+      //     showNotification({
+      //       title: "Error",
+      //       message: "Error in Verifying the QR Code. Please try again.",
+      //       type: "error",
+      //       duration: 3000,
+      //     });
+      //     console.log("error");
+      //     setResult("");
+      //   }
     }
   }, [result]);
 
   const handleError = (err) => {
     console.error(err);
   };
-  console.log("Result",result);
-  if (result===""||result===null) {
+  console.log("Result", result);
+  if (result === "" || result === null) {
     return (
       <>
         <div>
@@ -107,7 +109,7 @@ const [iscorrect, setIsCorrect ] = useState(false);
         </div>
       </>
     );
-  } else if(iscorrect){
+  } else if (iscorrect) {
     return (
       <div className="flex flex-wrap items-center justify-center gap-4">
         <svg
@@ -126,10 +128,7 @@ const [iscorrect, setIsCorrect ] = useState(false);
         <p>Successfully Verified The Ticket</p>
       </div>
     );
-  }
-  else{
-      return(
-      <div className="text-white text-center">Validating...</div>
-      )
+  } else {
+    return <div className="text-white text-center">Validating...</div>;
   }
 }
