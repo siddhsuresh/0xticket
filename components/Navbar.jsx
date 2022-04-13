@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import Link from 'next/link';
@@ -21,6 +21,7 @@ const useStyles = createStyles((theme) => ({
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
     overflow: 'hidden',
+    borderRadius: "10px",
 
     [theme.fn.largerThan('sm')]: {
       display: 'none',
@@ -70,15 +71,22 @@ const useStyles = createStyles((theme) => ({
     '&, &:hover': {
       backgroundColor: "#270082",
       color: "white",
+      borderRadius: "10px",
     },
   },
 }));
 
 export default function HeaderResponsive() {
-  const [opened, toggleOpened] = useBooleanToggle(false);
+    const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links.links[0].link);
   const { classes, cx } = useStyles();
-
+  useEffect(() => {
+    setActive(localStorage.getItem("active"));
+  }, []);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("active", active);
+  }, [active]);
   const items = links.links.map((link) => (
     <Link href={link.link} className="text-4xl">
     <a
@@ -101,6 +109,7 @@ export default function HeaderResponsive() {
       backgroundColor: "rgba(0,0,0,0.05)",
       backdropFilter: "blur(5px)",
       borderRadius: "20px",
+      marginBottom: "5%",
     }} >
       <Container className={classes.header}>
         <div className="flex flex-row gap-4 items-center justify-center text-white font-bold text-lg">
@@ -143,6 +152,10 @@ const links={
     {
       "link": "/purchased",
       "label": "Purchased Tickets"
+    },
+    {
+      "link": "/scan",
+      "label": "Scan QR Code"
     },
   ]
 };

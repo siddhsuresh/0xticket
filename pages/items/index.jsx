@@ -19,10 +19,10 @@ export default function Items(){
     return(
         <div className="h-full">
             <Head>
-                <title>Items Page</title>
+                <title>Tickets Page</title>
             </Head>
             <div className="flex items-center justify-center gap-8">
-            <div className="p-5 grid md:grid-cols-2 gap-[3.5rem]">
+            <div className="p-5 grid md:grid-cols-2 gap-[4.5rem]">
               {
               data.events.map((event)=>{
                 return (<Link href={"/items/"+event.url}>
@@ -37,7 +37,7 @@ export default function Items(){
                   transition={{ ease: "easeOut", delay: 0.1 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
-                  className="shadow-xl shadow-[#FA58B6]/20"
+                  className="shadow-xl shadow-[#FA58B6]/20 rounded-xl hover:shadow-white/40 hover:shadow-2xl"
                 >
                 <ItemCard {...event} />
                 </motion.div>
@@ -50,6 +50,6 @@ export default function Items(){
         </div>
     )
 } else {
-  return <div></div>
+  return <div className="h-full"></div>
 }
 } 
