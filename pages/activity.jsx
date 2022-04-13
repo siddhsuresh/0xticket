@@ -48,9 +48,6 @@ export default function Logs() {
                 >
                   Check Item
                 </div>
-                <p className="text-md text-white">
-                  Event Address: {log.account}
-                </p>
                 <h5 className="text-lg text-[#FA58B6] font-semibold">
                   Check In Time: {date} {time}
                 </h5>
