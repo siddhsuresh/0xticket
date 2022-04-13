@@ -81,7 +81,9 @@ export default function HeaderResponsive() {
   const [active, setActive] = useState(links.links[0].link);
   const { classes, cx } = useStyles();
   useEffect(() => {
-    setActive(localStorage.getItem("active"));
+    if(localStorage.getItem("active")){
+      setActive(localStorage.getItem("active"));
+    }
   }, []);
   useEffect(() => {
     // storing input name

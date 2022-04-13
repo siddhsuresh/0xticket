@@ -13,6 +13,7 @@ export default function App(props) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <link rel="shortcut icon" href="/icon.ico" />
       </Head>
       <div className="!bg-[#1A1A40] h-full">
         <MantineProvider theme={{ colorScheme: 'dark' }}>
