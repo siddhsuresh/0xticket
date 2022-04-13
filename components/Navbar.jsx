@@ -159,5 +159,9 @@ const links={
       "link": "/scan",
       "label": "Scan QR Code"
     },
+    {
+      "link": "/activity",
+      "label": "Activity"
+    },
   ]
 };
