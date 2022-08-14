@@ -80,19 +80,18 @@ function AnimatedButton(props) {
     )
 }
 
-export async function getStaticPaths() {
-    const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
-    console.log(data)
-    const paths = data.events.map((item) => ({
-        params: {
-            id: item.url,
-        },
-    }))
-    return { paths, fallback: false }
-}
+// export async function getStaticPaths() {
+//     const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
+//     console.log(data)
+//     const paths = data.events.map((item) => ({
+//         params: {
+//             id: item.url,
+//         },
+//     }))
+//     return { paths, fallback: false }
+// }
 
-// `getStaticPaths` requires using `getStaticProps`
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const data = await fetcher(`http://hackathon-backend.vercel.app/api/getEvents?url=${context.params.id}`)
     return {
         props: {
