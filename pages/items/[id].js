@@ -1,18 +1,12 @@
-import { useRouter } from "next/router";
 import Head from "next/head"
-import Image from "next/image";
-import { Button } from "@mui/material";
 import Web3 from 'web3';
-import { tokenAbi, marketplaceAbi } from "../../public/abi";
-import { useState, useEffect } from "react";
+import {  marketplaceAbi } from "../../public/abi";
+import { useState } from "react";
 import * as NumericInput from "react-numeric-input";
 import { motion } from "framer-motion";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { showNotification } from "@mantine/notifications";
 
-
-
-import useSWR from 'swr';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function AnimatedButton(props) {
@@ -32,7 +26,7 @@ function AnimatedButton(props) {
                     message: "Purchase Failed",
                     color: "red",
                     autoClose: 5000,
-                  });
+                });
                 console.log(e)
                 setIsAnimating(0)
             }
@@ -44,7 +38,7 @@ function AnimatedButton(props) {
                 message: "No Metamask detected",
                 color: "red",
                 autoClose: 5000,
-              });
+            });
             setIsAnimating(0)
         }
     }
@@ -63,7 +57,7 @@ function AnimatedButton(props) {
                                 message: "Purchase Successful",
                                 color: "green",
                                 autoClose: 5000,
-                              });
+                            });
                             setIsAnimating(0)
                         }
                     })
@@ -86,15 +80,29 @@ function AnimatedButton(props) {
     )
 }
 
-export default function Items() {
-    const router = useRouter();
-    const { id } = router.query;
-    const [value, setValue] = useState(1);
-    const { data, error } = useSWR(process.env.API_URL + '/api/getEvents?url=' + id, fetcher);
-    if (data) {
-        console.log(data)
-        console.log(data.available)
+export async function getStaticPaths() {
+    const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
+    console.log(data)
+    const paths = data.events.map((item) => ({
+        params: {
+            id: item.url,
+        },
+    }))
+    return { paths, fallback: false }
+}
+
+// `getStaticPaths` requires using `getStaticProps`
+export async function getStaticProps(context) {
+    const data = await fetcher(`http://hackathon-backend.vercel.app/api/getEvents?url=${context.params.id}`)
+    return {
+        props: {
+            data,
+        },
     }
+}
+
+export default function Items({ data }) {
+    const [value, setValue] = useState(1);
     if (data) {
         return (
             <>

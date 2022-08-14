@@ -3,18 +3,19 @@ import ItemCard from "../../components/Card"
 import {motion} from "framer-motion"
 import Link from "next/link"
 
-import useSWR from 'swr';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function Items(){
-
-  const { data, error } = useSWR(process.env.API_URL+'/api/getEvents', fetcher);
-  console.log(process.env.API_URL+'/api/getEvents')
-
-  if(data){
-    console.log(data)
+export async function getStaticProps() {
+  const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
+  console.log(data)
+  return {
+    props: {
+      data
+    }, // will be passed to the page component as props
   }
+}
 
+export default function Items({data}){
   if(data){
     return(
         <div className="h-full">
@@ -25,7 +26,7 @@ export default function Items(){
             <div className="p-5 grid md:grid-cols-2 gap-[4.5rem]">
               {
               data.events.map((event)=>{
-                return (<Link href={"/items/"+event.url}>
+                return (<Link key={event.url} href={"/items/"+event.url}>
             
                 <motion.div
                   // className="drops_hover_cursor"

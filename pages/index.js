@@ -2,6 +2,7 @@ import Head from "next/head"
 import Typed from 'react-typed';
 import { useEffect } from "react";
 import Image from "next/image";
+
 export default function Items() {
   useEffect(() => {
     localStorage.setItem('active', '/')
