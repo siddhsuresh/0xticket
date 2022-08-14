@@ -9,7 +9,9 @@ export default class _Document extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta name="google-site-verification" content="lZg1qY8cOKpHHemsRsmjCI-gVUhpEMtwuHDuHrPuiqQ" />
+        </Head>
         <body>
           <Main />
           <NextScript />
