@@ -39,9 +39,10 @@ export default function Items() {
             <h3 className="text-center text-xl font-semibold text-white">
               Shreyas Sai <a className="text-[#FA58B6]" href="https://github.com/shreyassai123">@shreyassai123</a>
             </h3>
-            <h4 className="text-center text-xl font-semibold text-white">
+            <h3 className="text-center text-xl font-semibold text-white">
               Siddharth Suresh <a className="text-[#FA58B6]" href="https://github.com/siddhsuresh">@siddhsuresh</a>
-            </h3><h4 className="text-center text-xl font-semibold text-white">
+            </h3>
+            <h3 className="text-center text-xl font-semibold text-white">
               Shrinath NR <a className="text-[#FA58B6]" href="https://github.com/ShrinathNR">@ShrinathNR</a>
             </h3>
           </div>
