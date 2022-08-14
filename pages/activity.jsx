@@ -44,7 +44,7 @@ export default function Logs() {
   if(connected==""||connected==null){
     return(
       <>
-      <div className="h-full"> Loading...</div>
+      <div className="h-screen"> Loading...</div>
       </>
     )
   }

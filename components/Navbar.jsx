@@ -90,7 +90,7 @@ export default function HeaderResponsive() {
     localStorage.setItem("active", active);
   }, [active]);
   const items = links.links.map((link) => (
-    <Link href={link.link} className="text-4xl">
+    <Link href={link.link} className="text-4xl" key={link.link}>
     <a
       key={link.label}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
