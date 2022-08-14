@@ -34,18 +34,18 @@ export default function Items() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center p-5 gap-6">
-          <h3 className="text-center text-3xl font-semibold text-white">Presented By</h3>
+          <h2 className="text-center text-3xl font-semibold text-white">Presented By</h2>
           <div className="flex flex-row gap-4 items-center justify-center">
-            <h4 className="text-center text-xl font-semibold text-white">
+            <h3 className="text-center text-xl font-semibold text-white">
               Shreyas Sai <a className="text-[#FA58B6]" href="https://github.com/shreyassai123">@shreyassai123</a>
-            </h4>
+            </h3>
             <h4 className="text-center text-xl font-semibold text-white">
               Siddharth Suresh <a className="text-[#FA58B6]" href="https://github.com/siddhsuresh">@siddhsuresh</a>
-            </h4><h4 className="text-center text-xl font-semibold text-white">
+            </h3><h4 className="text-center text-xl font-semibold text-white">
               Shrinath NR <a className="text-[#FA58B6]" href="https://github.com/ShrinathNR">@ShrinathNR</a>
-            </h4>
+            </h3>
           </div>
-          <h3 className="text-3xl font-bold text-white mt-10 mb-2">GitHub Respositories</h3>
+          <h2 className="text-3xl font-bold text-white mt-10 mb-2">GitHub Respositories</h2>
           <div className="flex flex-wrap lg:flex-row items-center justify-center gap-5">
             <div className="border h-full rounded p-4 flex flex-col text-white">
               <div className="flex items-center">
@@ -118,7 +118,7 @@ export default function Items() {
             </div>
           </div>
           <div className="m-10 flex flex-col items-center justify-center gap-5">
-            <h3 className="text-white font-bold text-3xl">Medium Article on the Hackathon by Crust</h3>
+            <h2 className="text-white font-bold text-3xl">Medium Article on the Hackathon by Crust</h2>
             <div className="w-full px-6 mx-auto space-y-10 max-w-6xl lg:block">
               <div>
                 <a
