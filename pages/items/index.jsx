@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
   console.log(data)
   return {
