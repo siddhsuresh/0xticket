@@ -36,7 +36,7 @@ export default function Items() {
         </div>
         <div className="flex flex-col items-center justify-center p-5 gap-6">
           <h2 className="text-center text-3xl font-semibold text-white">Presented By</h2>
-          <div className="flex flex-row gap-4 items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <h3 className="text-center text-xl font-semibold text-white">
               Shreyas Sai <a className="text-[#FA58B6]" href="https://github.com/shreyassai123">@shreyassai123</a>
             </h3>
