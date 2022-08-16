@@ -5,13 +5,14 @@ import Link from "next/link"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = await fetcher('http://hackathon-backend.vercel.app/api/getEvents')
   console.log(data)
   return {
     props: {
       data
     }, // will be passed to the page component as props
+    revalidate: 60, // In seconds
   }
 }
 
